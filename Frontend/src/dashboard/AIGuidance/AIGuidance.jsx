@@ -60,12 +60,12 @@ export function AIGuidance() {
 "What would you like to learn? Share your learning goals with us.\n\n${answers.learningGoal}\n\nHow do you prefer to learn new things?\n\n${answers.learningStyle}\n\nHow much time can you dedicate daily to learning?\n\n${answers.timeCommitment}\n\nWhat level of challenge are you comfortable with?\n\n${answers.difficulty}\n\nWhen do you want to achieve your learning goal?\n\n${answers.goalTimeline}\n\nWhat drives you to learn this subject?\n\n${answers.motivation}\n\nWhat's your current background in this subject?\n\n${answers.background}\n\nWhat type of learning resources do you prefer?\n\n${answers.preferredResources}"
     `;
 
-    console.log("Sending prompt to AI:", prompt);
+    // console.log("Sending prompt to AI:", prompt);
 
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:4000/ai/request",
+        `${import.meta.env.VITE_API_URL}/ai/request`,
         { prompt, role: "confuse_user" },
         {
           headers: {
@@ -75,7 +75,7 @@ export function AIGuidance() {
         }
       );
 
-      console.log("AI Response Received:", response.data.finalresponse);
+      // console.log("AI Response Received:", response.data.finalresponse);
       setAiResponse(response.data.finalresponse);
 
       // ✅ Redirect to CompletionScreen & pass aiResponse

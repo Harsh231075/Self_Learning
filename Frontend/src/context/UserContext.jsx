@@ -5,6 +5,7 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
 
   const fetchUserDetails = async () => {
     try {
@@ -22,7 +23,6 @@ export const UserProvider = ({ children }) => {
 
       if (response.ok) {
         const userData = await response.json();
-        // console.log(userData);
         setUser(userData);
       } else {
         localStorage.removeItem('token');
@@ -33,6 +33,7 @@ export const UserProvider = ({ children }) => {
       setUser(null);
     } finally {
       setLoading(false);
+      setRefreshing(false);
     }
   };
 
@@ -52,8 +53,21 @@ export const UserProvider = ({ children }) => {
     setUser(null);
   };
 
+  const refreshUser = async () => {
+    setRefreshing(true);
+    await fetchUserDetails();
+  };
+
   return (
-    <UserContext.Provider value={{ user, loading, updateUser, logout, fetchUserDetails }}>
+    <UserContext.Provider value={{
+      user,
+      loading,
+      updateUser,
+      logout,
+      fetchUserDetails,
+      refreshUser,
+      refreshing
+    }}>
       {children}
     </UserContext.Provider>
   );

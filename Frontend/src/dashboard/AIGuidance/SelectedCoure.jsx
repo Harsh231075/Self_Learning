@@ -52,7 +52,7 @@ export default function SelectedCourse() {
         }
       );
 
-      console.log(response);
+      // console.log(response);
       setMessage("🎉 Your study plan is ready! Visit the Study Plan section and start your learning journey! 🚀");
     } catch (error) {
       console.error("Error fetching study plan:", error);

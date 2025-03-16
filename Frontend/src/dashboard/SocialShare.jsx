@@ -11,7 +11,7 @@ import { useUser } from '../hooks/useUser';
 
 export default function SocialShare() {
   const { user, loading } = useUser(); // Use the context
-  console.log(user);
+  // console.log(user);
   if (loading) {
     return <div className="min-h-screen bg-gray-100 p-4 flex items-center justify-center">
       Loading...
