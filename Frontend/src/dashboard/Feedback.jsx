@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Bot, Send, Star, ThumbsUp, MessageSquare, Sparkles } from 'lucide-react';
+import { Bot, Send, Star, ThumbsUp, MessageSquare, Sparkles, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function Feedback({ onClose }) {
   const [rating, setRating] = useState(0);
@@ -49,10 +50,15 @@ function Feedback({ onClose }) {
             <Sparkles className="w-16 h-16 text-yellow-400" />
           </div>
           <h2 className="text-2xl font-bold mb-4">Thank You!</h2>
-          <p className="text-gray-200">Your feedback helps us improve our AI learning platform.</p>
+          <p className="text-gray-200 mb-6">Your feedback helps us improve our AI learning platform.</p>
+          <Link to="/my-dashbaord">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center mx-auto">
+              <ArrowLeft className="w-5 h-5 mr-2" />
+              Back to Dashboard
+            </button>
+          </Link>
         </div>
-      </div>
-    );
+      </div>);
   }
 
   return (

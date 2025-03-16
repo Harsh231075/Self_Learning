@@ -112,7 +112,7 @@ export default function AboutPage() {
       </section>
 
       {/* CEO Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-90 to-blue-300 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-blue-90 to-blue-200 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0">
           <div className="absolute w-[600px] h-[600px] -top-40 -right-40 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
@@ -153,35 +153,35 @@ export default function AboutPage() {
                 className="text-left space-y-6"
               >
                 <div className="inline-flex items-center px-4 py-2 bg-blue-500/10 rounded-full border border-blue-200/20">
-                  <span className="text-blue-100 text-sm">Leadership</span>
+                  <span className="text-gray-600/90 text-sm">Leadership</span>
                 </div>
 
-                <h2 className="text-4xl sm:text-5xl font-bold text-white">
+                <h2 className="text-4xl sm:text-5xl font-bold text-gray-600/90">
                   Harsh singh baghel
                 </h2>
 
-                <p className="text-xl text-blue-100">
+                <p className="text-xl text-gray-600/90">
                   CEO & Founder
                 </p>
 
                 <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-transparent"></div>
 
-                <blockquote className="text-white/90 text-lg sm:text-xl leading-relaxed">
+                <blockquote className="text-gray-600/90 text-lg sm:text-xl leading-relaxed">
                   "Our mission is to democratize education through AI technology, making personalized learning accessible to everyone, everywhere. We're not just building a platform; we're creating the future of education."
                 </blockquote>
 
                 <div className="pt-6 flex flex-wrap gap-4">
                   <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
-                    <div className="text-2xl font-bold text-white mb-1">10+</div>
-                    <div className="text-blue-100 text-sm">Years Experience</div>
+                    <div className="text-2xl font-bold text-gray-600/90 mb-1">10+</div>
+                    <div className="text-gray-600/90 text-sm">Years Experience</div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
-                    <div className="text-2xl font-bold text-white mb-1">50K+</div>
-                    <div className="text-blue-100 text-sm">Students Helped</div>
+                    <div className="text-2xl font-bold text-gray-600/90 mb-1">50K+</div>
+                    <div className="text-gray-600/90 text-sm">Students Helped</div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
-                    <div className="text-2xl font-bold text-white mb-1">95%</div>
-                    <div className="text-blue-100 text-sm">Success Rate</div>
+                    <div className="text-2xl font-bold text-gray-600/90 mb-1">95%</div>
+                    <div className="text-gray-600/90 text-sm">Success Rate</div>
                   </div>
                 </div>
               </motion.div>

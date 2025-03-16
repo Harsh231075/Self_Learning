@@ -24,7 +24,7 @@ export default function QuizComponent() {
     const fetchQuestions = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:4000/ai/request",
+          `${import.meta.env.VITE_API_URL}/ai/request`,
           { prompt, role },
           {
             headers: {
