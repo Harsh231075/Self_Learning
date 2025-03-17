@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { ArrowLeft, BookOpen, PlusCircle, PlayCircle } from "lucide-react";
+import { ArrowLeft, BookOpen, XCircle, PlayCircle } from "lucide-react";
 import { useUser } from '../hooks/useUser';
 
 export default function StudyPlansList() {
@@ -161,7 +161,47 @@ export default function StudyPlansList() {
         {showModal && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center p-4">
             <div className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 relative">
-              {/* Rest of the modal content remains the same */}
+              <button onClick={handleCancel} className="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+
+                <XCircle className="h-6 w-6" />
+
+              </button>
+
+              {/* Modal Content */}
+
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">📢 Test Guidelines</h3>
+
+              <ul className="text-gray-700 space-y-2">
+
+                <li>✔ The test is 10 mint and should be completed in one sitting.</li>
+
+                <li>✔ Do not refresh or switch tabs otherwise, the test will restart.</li>
+
+                <li>✔ Read each question carefully before selecting your answer.</li>
+
+                <li>✔ Once submitted, you cannot change your answers.</li>
+
+                <li>✔ Be honest and give your best effort!</li>
+
+              </ul>
+
+              {/* Action Buttons */}
+
+              <div className="flex justify-end gap-4 mt-6">
+
+                <button onClick={handleCancel} className="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-400">
+
+                  Back
+
+                </button>
+
+                <button onClick={handleConfirm} className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+
+                  Confirm & Start Test
+
+                </button>
+
+              </div>
             </div>
           </div>
         )}

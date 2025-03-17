@@ -42,6 +42,7 @@ export default function QuizComponent() {
         const jsonData = JSON.parse(cleanedText);
         // console.log("Parsed Quiz Data:", jsonData);
 
+
         // ✅ Step 3: Extract and store relevant fields
         setQuizTitle(jsonData.quiz_topic);
         setDifficulty(jsonData.difficulty);
