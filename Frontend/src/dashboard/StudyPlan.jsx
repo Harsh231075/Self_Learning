@@ -51,8 +51,8 @@ const StudyPlan = () => {
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-2xl font-semibold text-gray-900">{parsedData.study_topic}</h3>
                 <span className={`px-3 py-1 rounded-full text-sm ${parsedData.difficulty === 'Easy' ? 'bg-green-100 text-green-700' :
-                    parsedData.difficulty === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
-                      'bg-red-100 text-red-700'
+                  parsedData.difficulty === 'Medium' ? 'bg-yellow-100 text-yellow-700' :
+                    'bg-red-100 text-red-700'
                   }`}>
                   {parsedData.difficulty}
                 </span>
@@ -86,7 +86,7 @@ const StudyPlan = () => {
               Start your learning journey by creating your first personalized study plan!
             </p>
             <button
-              onClick={() => navigate('/create-plan')}
+              onClick={() => navigate('/my-dashbaord')}
               className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-all"
             >
               Create Study Plan
