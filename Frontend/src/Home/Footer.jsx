@@ -1,5 +1,6 @@
 import React from 'react';
-import { Mail, MapPin, Phone, Facebook } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { Link } from 'react-router-dom'
 import {
   FaInstagram,
   FaFacebookF,
@@ -21,22 +22,22 @@ export default function Footer() {
               Transforming education through AI-powered personalized learning experiences.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+              <Link to="https://www.instagram.com/harsh_singh_9685/?hl=en" target="_blank" rel="noopener noreferrer"
                 className="bg-gray-800 p-2 rounded-full hover:bg-blue-600 transition-colors">
                 <FaInstagram className="h-5 w-5" />
-              </a>
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+              </Link>
+              <Link to="https://www.linkedin.com/in/harsh-singh-baghel/" target="_blank" rel="noopener noreferrer"
                 className="bg-gray-800 p-2 rounded-full hover:bg-blue-600 transition-colors">
                 <FaLinkedinIn className="h-5 w-5" />
-              </a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"
+              </Link>
+              <Link to="/" target="_blank" rel="noopener noreferrer"
                 className="bg-gray-800 p-2 rounded-full hover:bg-blue-600 transition-colors">
                 <FaTwitter className="h-5 w-5" />
-              </a>
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+              </Link>
+              <Link to="/" target="_blank" rel="noopener noreferrer"
                 className="bg-gray-800 p-2 rounded-full hover:bg-blue-600 transition-colors">
                 <FaFacebookF className="h-5 w-5" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -44,11 +45,11 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="/about" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="/courses" className="text-gray-400 hover:text-white transition-colors">Courses</a></li>
-              <li><a href="/leaderboard" className="text-gray-400 hover:text-white transition-colors">Leaderboard</a></li>
-              <li><a href="/success-stories" className="text-gray-400 hover:text-white transition-colors">Success Stories</a></li>
-              <li><a href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Courses</Link></li>
+              <li><Link to="/leaderboard" className="text-gray-400 hover:text-white transition-colors">Leaderboard</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Success Stories</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
             </ul>
           </div>
 
@@ -56,11 +57,11 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Support</h4>
             <ul className="space-y-3">
-              <li><a href="/help" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
-              <li><a href="/faq" className="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
-              <li><a href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">Help Center</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">FAQs</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -91,9 +92,9 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} EduAI. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm text-gray-400">
-              <a href="/privacy" className="hover:text-white transition-colors">Privacy</a>
-              <a href="/terms" className="hover:text-white transition-colors">Terms</a>
-              <a href="/cookies" className="hover:text-white transition-colors">Cookies</a>
+              <Link to="/" className="hover:text-white transition-colors">Privacy</Link>
+              <Link to="/" className="hover:text-white transition-colors">Terms</Link>
+              <Link to="/" className="hover:text-white transition-colors">Cookies</Link>
             </div>
           </div>
         </div>

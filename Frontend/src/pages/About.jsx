@@ -1,7 +1,9 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../Home/Navbar';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-hot-toast';
 import { Brain, Target, Users, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function AboutPage() {
@@ -23,23 +25,53 @@ export default function AboutPage() {
     }
   ];
 
-  const inputs = [
-    {
-      label: "Full Name",
-      type: "text",
-      placeholder: "Enter your name"
-    },
-    {
-      label: "Email Address",
-      type: "email",
-      placeholder: "Enter your email"
-    },
-    {
-      label: "Your Message",
-      type: "textarea",
-      placeholder: "Write your message here..."
+
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    console.log('Form Data:', formData);
+
+    const templateParams = {
+      from_name: e.target.name.value,
+      from_email: e.target.email.value,
+      message: e.target.message.value,
+      to_name: "Harsh Singh Baghel",
+      reply_to: e.target.email.value
+    };
+
+    // Log template params to verify
+    // console.log('Template Params:', templateParams);
+    try {
+      await emailjs.send(
+        'service_s14g1e1',
+        'template_7exlhon',
+        templateParams,
+        '1BKmOHntYXSu7-AUH'
+      );
+
+      toast.success('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast.error('Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-90 to-blue-300">
@@ -171,17 +203,17 @@ export default function AboutPage() {
                 </blockquote>
 
                 <div className="pt-6 flex flex-wrap gap-4">
-                  <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
+                  <div className="bg-gray-500/10 px-6 py-4 rounded-xl">
+                    <div className="text-2xl font-bold text-gray-600/90 mb-1">15+</div>
+                    <div className="text-gray-600/90 text-sm">Projects Completed</div>
+                  </div>
+                  <div className="bg-gray-500/10 px-6 py-4 rounded-xl">
                     <div className="text-2xl font-bold text-gray-600/90 mb-1">10+</div>
-                    <div className="text-gray-600/90 text-sm">Years Experience</div>
+                    <div className="text-gray-600/90 text-sm">Technologies Learned</div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
-                    <div className="text-2xl font-bold text-gray-600/90 mb-1">50K+</div>
-                    <div className="text-gray-600/90 text-sm">Students Helped</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm px-6 py-4 rounded-xl">
-                    <div className="text-2xl font-bold text-gray-600/90 mb-1">95%</div>
-                    <div className="text-gray-600/90 text-sm">Success Rate</div>
+                  <div className="bg-gray-500/10 px-6 py-4 rounded-xl">
+                    <div className="text-2xl font-bold text-gray-600/90 mb-1">4.2</div>
+                    <div className="text-gray-600/90 text-sm">Average Project Rating</div>
                   </div>
                 </div>
               </motion.div>
@@ -254,42 +286,72 @@ export default function AboutPage() {
 
                     {/* Contact Form */}
                     <motion.form
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      onSubmit={handleSubmit}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       className="space-y-6"
                     >
-                      {inputs.map((input, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                        >
-                          <label className="block text-sm font-medium text-blue-900 mb-2">
-                            {input.label}
-                          </label>
-                          {input.type === 'textarea' ? (
-                            <textarea
-                              placeholder={input.placeholder}
-                              rows={4}
-                              className="w-full px-4 py-3 rounded-xl border border-blue-100 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 resize-none"
-                            />
-                          ) : (
-                            <input
-                              type={input.type}
-                              placeholder={input.placeholder}
-                              className="w-full px-4 py-3 rounded-xl border border-blue-100 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300"
-                            />
-                          )}
-                        </motion.div>
-                      ))}
+                      <div>
+                        <label className="block text-sm font-medium text-blue-900 mb-2">
+                          Your Name
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          placeholder="Your Name"
+                          className="w-full px-4 py-3 rounded-xl border border-blue-100 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-blue-900 mb-2">
+                          Your Email
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          placeholder="Your Email"
+                          className="w-full px-4 py-3 rounded-xl border border-blue-100 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-blue-900 mb-2">
+                          Your Message
+                        </label>
+                        <textarea
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          required
+                          placeholder="Write your message here..."
+                          rows="4"
+                          className="w-full px-4 py-3 rounded-xl border border-blue-100 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 resize-none"
+                        />
+                      </div>
 
                       <motion.button
+                        type="submit"
+                        disabled={loading}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white rounded-xl hover:shadow-lg transition-all duration-300 font-medium"
+                        className={`w-full py-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white rounded-xl hover:shadow-lg transition-all duration-300 font-medium flex items-center justify-center gap-2 ${loading ? 'opacity-70 cursor-not-allowed' : ''
+                          }`}
                       >
-                        Send Message
+                        {loading ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                            <span>Sending...</span>
+                          </>
+                        ) : (
+                          'Send Message'
+                        )}
                       </motion.button>
                     </motion.form>
                   </div>
