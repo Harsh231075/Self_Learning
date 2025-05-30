@@ -4,7 +4,7 @@ import { Book } from "lucide-react";
 import { UserType } from "../Ai/UserType";
 import { AIGuidance } from "../AIGuidance/AIGuidance";
 import { UserForm } from "../Ai/UserForm";
-import QuizComponent from "../Test/Quiz"; // Import the quiz component
+import QuizComponent from "../test/Quiz"; // Import the quiz component
 import { useUser } from '../hooks/useUser';
 import { MessageSquare } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
