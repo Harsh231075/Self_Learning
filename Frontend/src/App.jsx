@@ -12,7 +12,7 @@ import StudyMaterial from "./Ai/StudyMaterial";
 import CompletionScreen from "./Career/CompletionScreen";
 import SelectedCourse from "./AIGuidance/SelectedCoure";
 import QuizComponent from "./test/Quiz";
-import StudyPlansList from "./Test/StudyPlansList";
+import StudyPlansList from "./test/StudyPlansList";
 import QuizSubmit from "./test/QuizSubmit";
 import Certificate from "./test/Certificate";
 import { UserProvider } from './context/UserContext';
